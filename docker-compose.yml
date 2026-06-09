@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: nepaltrek_db
+    environment:
+      POSTGRES_DB: nepaltrek_db
+      POSTGRES_USER: nepaltrek_user
+      POSTGRES_PASSWORD: nepaltrek_pass
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U nepaltrek_user -d nepaltrek_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: nepaltrek_backend
+    ports:
+      - "8000:8000"
+    environment:
+      DATABASE_URL: postgresql://nepaltrek_user:nepaltrek_pass@db:5432/nepaltrek_db
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes:
+      - ./backend:/app
+
+volumes:
+  pgdata:

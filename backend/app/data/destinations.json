@@ -1,0 +1,1613 @@
+[
+  {
+    "id": 1,
+    "name": "Everest Base Camp",
+    "cluster": "High Himalayan Treks",
+    "alt_name": "Sagarmatha Base Camp",
+    "region": "Khumbu Region",
+    "altitude_min": 2840,
+    "altitude_max": 5364,
+    "terrain": "Glacial, rocky, alpine",
+    "duration_min": 12,
+    "duration_max": 16,
+    "cost_per_day_npr": 6750,
+    "cost_per_day_usd": 50,
+    "difficulty": "Difficult",
+    "best_seasons": [
+      "spring",
+      "autumn"
+    ],
+    "activities": [
+      "trekking",
+      "photography",
+      "adventure",
+      "cultural"
+    ],
+    "permits": [
+      "TIMS Card (Rs 2,700)",
+      "Sagarmatha National Park Entry (NPR 3,000)"
+    ],
+    "description": "The world's most iconic trek. Fly into Lukla and trek through Sherpa villages, rhododendron forests, and glacial moraines to reach the foot of the world's highest peak. The journey includes a visit to Kala Patthar (5,644m) for sunrise views of Everest, Lhotse, and Nuptse.",
+    "highlights": [
+      "Kala Patthar sunrise",
+      "Tengboche Monastery",
+      "Namche Bazaar",
+      "Sagarmatha National Park",
+      "Sherpa culture"
+    ],
+    "image_url": "/images/ebc.jpg",
+    "requires_guide": false,
+    "fitness_level": "active",
+    "ams_risk": "High",
+    "ascent_rate_per_day": 400,
+    "trail_exposure": "glacial",
+    "season": "autumn",
+    "match_score": 0
+  },
+  {
+    "id": 2,
+    "name": "Annapurna Circuit",
+    "cluster": "High Himalayan Treks",
+    "alt_name": "Annapurna Trek",
+    "region": "Annapurna Region",
+    "altitude_min": 760,
+    "altitude_max": 5416,
+    "terrain": "Mountain, arid, forested",
+    "duration_min": 14,
+    "duration_max": 21,
+    "cost_per_day_npr": 5400,
+    "cost_per_day_usd": 40,
+    "difficulty": "Difficult",
+    "best_seasons": [
+      "spring",
+      "autumn"
+    ],
+    "activities": [
+      "trekking",
+      "photography",
+      "cultural",
+      "spiritual"
+    ],
+    "permits": [
+      "TIMS Card (Rs 2,700)",
+      "ACAP Entry (NPR 3,000)"
+    ],
+    "description": "Nepal's most diverse trek, circling the Annapurna massif. Cross the Thorong La Pass (5,416m), explore the Mustang region's Tibetan Buddhist culture, and descend through the world's deepest gorge. Unmatched variety of landscapes from subtropical forests to high desert.",
+    "highlights": [
+      "Thorong La Pass",
+      "Muktinath Temple",
+      "Poon Hill",
+      "Natural hot springs at Tatopani",
+      "Kali Gandaki Gorge"
+    ],
+    "image_url": "/images/annapurna-circuit.jpg",
+    "requires_guide": false,
+    "fitness_level": "active",
+    "ams_risk": "High",
+    "ascent_rate_per_day": 350,
+    "trail_exposure": "mountain",
+    "season": "autumn"
+  },
+  {
+    "id": 3,
+    "name": "Annapurna Base Camp",
+    "cluster": "High Himalayan Treks",
+    "alt_name": "ABC Trek",
+    "region": "Annapurna Region",
+    "altitude_min": 1070,
+    "altitude_max": 4130,
+    "terrain": "Forested, alpine",
+    "duration_min": 7,
+    "duration_max": 10,
+    "cost_per_day_npr": 5400,
+    "cost_per_day_usd": 40,
+    "difficulty": "Moderate",
+    "best_seasons": [
+      "spring",
+      "autumn",
+      "winter"
+    ],
+    "activities": [
+      "trekking",
+      "photography",
+      "wildlife"
+    ],
+    "permits": [
+      "TIMS Card (Rs 2,700)",
+      "ACAP Entry (NPR 3,000)"
+    ],
+    "description": "A stunning trek into the heart of the Annapurna Sanctuary. Walk through lush rhododendron forests and traditional Gurung villages to reach the base camp surrounded by a amphitheater of peaks including Annapurna I, Machhapuchhre, and Hiunchuli.",
+    "highlights": [
+      "Annapurna Sanctuary",
+      "Machhapuchhre Base Camp",
+      "Ghandruk village",
+      "Poon Hill side trip",
+      "Hot springs"
+    ],
+    "image_url": "/images/abc.jpg",
+    "requires_guide": false,
+    "fitness_level": "active",
+    "ams_risk": "Moderate",
+    "ascent_rate_per_day": 400,
+    "trail_exposure": "mountain",
+    "season": "autumn"
+  },
+  {
+    "id": 4,
+    "name": "Langtang Valley",
+    "cluster": "High Himalayan Treks",
+    "alt_name": "Langtang Trek",
+    "region": "Langtang Region",
+    "altitude_min": 1500,
+    "altitude_max": 4773,
+    "terrain": "Forested, alpine, glacial",
+    "duration_min": 7,
+    "duration_max": 10,
+    "cost_per_day_npr": 4725,
+    "cost_per_day_usd": 35,
+    "difficulty": "Moderate",
+    "best_seasons": [
+      "spring",
+      "autumn"
+    ],
+    "activities": [
+      "trekking",
+      "photography",
+      "cultural"
+    ],
+    "permits": [
+      "TIMS Card (Rs 2,700)",
+      "Langtang National Park (NPR 3,000)"
+    ],
+    "description": "The closest Himalayan trek from Kathmandu. Journey through the beautiful Langtang Valley, home to the indigenous Tamang people. The trail offers spectacular mountain views, yak pastures, and the opportunity to climb Kyanjin Ri for panoramic vistas.",
+    "highlights": [
+      "Kyanjin Gompa",
+      "Langtang Village",
+      "Tamang heritage",
+      "Yak cheese factory",
+      "Kyanjin Ri viewpoint"
+    ],
+    "image_url": "/images/langtang.jpg",
+    "requires_guide": false,
+    "fitness_level": "active",
+    "ams_risk": "Moderate",
+    "ascent_rate_per_day": 350,
+    "trail_exposure": "mountain",
+    "season": "autumn"
+  },
+  {
+    "id": 5,
+    "name": "Manaslu Circuit",
+    "cluster": "High Himalayan Treks",
+    "alt_name": "Manaslu Trek",
+    "region": "Manaslu Region",
+    "altitude_min": 600,
+    "altitude_max": 5106,
+    "terrain": "Mountain, forested, glacial",
+    "duration_min": 14,
+    "duration_max": 18,
+    "cost_per_day_npr": 8100,
+    "cost_per_day_usd": 60,
+    "difficulty": "Difficult",
+    "best_seasons": [
+      "spring",
+      "autumn"
+    ],
+    "activities": [
+      "trekking",
+      "photography",
+      "adventure",
+      "cultural"
+    ],
+    "permits": [
+      "TIMS Card (Rs 2,700)",
+      "Manaslu Conservation Area (NPR 3,000)",
+      "Restricted Area Permit (Rs 9,450-13,500/week)"
+    ],
+    "description": "A restricted area trek offering pristine wilderness around the world's eighth highest peak. Requires a registered guide. The circuit crosses the Larkya La Pass (5,106m) and offers a more remote alternative to the Annapurna Circuit with rich Buddhist culture.",
+    "highlights": [
+      "Larkya La Pass",
+      "Tsum Valley side trip",
+      "Remote Buddhist monasteries",
+      "Pristine forests",
+      "Birendra Lake"
+    ],
+    "image_url": "/images/manaslu.jpg",
+    "requires_guide": true,
+    "fitness_level": "athletic",
+    "ams_risk": "High",
+    "ascent_rate_per_day": 350,
+    "trail_exposure": "glacial",
+    "season": "autumn"
+  },
+  {
+    "id": 6,
+    "name": "Kanchenjunga",
+    "cluster": "High Himalayan Treks",
+    "alt_name": "Kanchenjunga Trek",
+    "region": "Far Eastern Nepal",
+    "altitude_min": 1200,
+    "altitude_max": 5143,
+    "terrain": "Remote, alpine, glacial",
+    "duration_min": 18,
+    "duration_max": 24,
+    "cost_per_day_npr": 6750,
+    "cost_per_day_usd": 50,
+    "difficulty": "Expert",
+    "best_seasons": [
+      "spring",
+      "autumn"
+    ],
+    "activities": [
+      "trekking",
+      "photography",
+      "adventure"
+    ],
+    "permits": [
+      "TIMS Card (Rs 2,700)",
+      "Kanchenjunga Conservation Area (NPR 3,000)",
+      "Restricted Area Permit (Rs 2,700/person/week)"
+    ],
+    "description": "One of Nepal's most remote and challenging treks, circling the third highest mountain in the world. Requires a registered guide. The route passes through pristine forests, remote villages, and offers breathtaking views of Kanchenjunga's massive south face.",
+    "highlights": [
+      "Pangpema (Kanchenjunga North Base Camp)",
+      "Selection La viewpoint",
+      "Remote Limbu villages",
+      "Glacial valleys",
+      "Untouched wilderness"
+    ],
+    "image_url": "/images/kanchenjunga.jpg",
+    "requires_guide": true,
+    "fitness_level": "athletic",
+    "ams_risk": "Very High",
+    "ascent_rate_per_day": 300,
+    "trail_exposure": "glacial",
+    "season": "spring"
+  },
+  {
+    "id": 7,
+    "name": "Dolpo",
+    "cluster": "High Himalayan Treks",
+    "alt_name": "Dolpo Trek",
+    "region": "Western Nepal",
+    "altitude_min": 2000,
+    "altitude_max": 5500,
+    "terrain": "Arid, high desert, alpine",
+    "duration_min": 18,
+    "duration_max": 25,
+    "cost_per_day_npr": 9450,
+    "cost_per_day_usd": 70,
+    "difficulty": "Expert",
+    "best_seasons": [
+      "summer",
+      "autumn"
+    ],
+    "activities": [
+      "trekking",
+      "photography",
+      "cultural",
+      "spiritual"
+    ],
+    "permits": [
+      "Restricted Area Permit (Rs 67,500/10 days)",
+      "Shey Phoksundo National Park (NPR 3,000)"
+    ],
+    "description": "The legendary 'Hidden Valley' made famous by Peter Matthiessen's 'The Snow Leopard'. Upper Dolpo requires a restricted area permit with a licensed guide. Explore ancient Tibetan Buddhist culture, crystal-clear Phoksundo Lake, and the stark beauty of the Trans-Himalayan desert.",
+    "highlights": [
+      "Shey Phoksundo Lake",
+      "Tibetan Buddhist monasteries",
+      "Shey Gompa",
+      "Crystal Mountain",
+      "Snow leopard habitat"
+    ],
+    "image_url": "/images/dolpo.jpg",
+    "requires_guide": true,
+    "fitness_level": "athletic",
+    "ams_risk": "Very High",
+    "ascent_rate_per_day": 300,
+    "trail_exposure": "high_desert",
+    "season": "summer"
+  },
+  {
+    "id": 8,
+    "name": "Mera Peak",
+    "cluster": "High Himalayan Treks",
+    "alt_name": "Mera Peak Climb",
+    "region": "Khumbu Region",
+    "altitude_min": 2800,
+    "altitude_max": 6476,
+    "terrain": "Glacial, technical",
+    "duration_min": 16,
+    "duration_max": 20,
+    "cost_per_day_npr": 10800,
+    "cost_per_day_usd": 80,
+    "difficulty": "Expert",
+    "best_seasons": [
+      "spring",
+      "autumn"
+    ],
+    "activities": [
+      "trekking",
+      "climbing",
+      "adventure",
+      "photography"
+    ],
+    "permits": [
+      "TIMS Card (Rs 2,700)",
+      "Sagarmatha National Park (NPR 3,000)",
+      "Peak Climbing Permit (Rs 33,750-Rs 67,500)"
+    ],
+    "description": "Nepal's highest trekking peak at 6,476m. A technical climb requiring mountaineering experience and proper gear (crampons, ice axe, harness). Offers unparalleled views of five 8,000m peaks: Everest, Lhotse, Makalu, Cho Oyu, and Kanchenjunga.",
+    "highlights": [
+      "Summit at 6,476m",
+      "Views of 5 eight-thousanders",
+      "Khumbu glaciers",
+      "Hinku Valley",
+      "Technical climbing experience"
+    ],
+    "image_url": "/images/mera-peak.jpg",
+    "requires_guide": true,
+    "fitness_level": "athletic",
+    "ams_risk": "Very High",
+    "ascent_rate_per_day": 300,
+    "trail_exposure": "glacial",
+    "season": "spring"
+  },
+  {
+    "id": 9,
+    "name": "Island Peak",
+    "cluster": "High Himalayan Treks",
+    "alt_name": "Imja Tse",
+    "region": "Khumbu Region",
+    "altitude_min": 2800,
+    "altitude_max": 6189,
+    "terrain": "Glacial, technical",
+    "duration_min": 14,
+    "duration_max": 18,
+    "cost_per_day_npr": 9450,
+    "cost_per_day_usd": 70,
+    "difficulty": "Expert",
+    "best_seasons": [
+      "spring",
+      "autumn"
+    ],
+    "activities": [
+      "trekking",
+      "climbing",
+      "adventure",
+      "photography"
+    ],
+    "permits": [
+      "TIMS Card (Rs 2,700)",
+      "Sagarmatha National Park (NPR 3,000)",
+      "Peak Climbing Permit (Rs 33,750)"
+    ],
+    "description": "A popular trekking peak in the Everest region. The climb involves glacier travel, a steep headwall, and a final summit ridge with incredible views of Lhotse, Nuptse, and Everest. Requires prior climbing experience.",
+    "highlights": [
+      "Summit at 6,189m",
+      "Everest panorama",
+      "Glacier climbing",
+      "Technical headwall",
+      "Lhotse face views"
+    ],
+    "image_url": "/images/island-peak.jpg",
+    "requires_guide": true,
+    "fitness_level": "athletic",
+    "ams_risk": "Very High",
+    "ascent_rate_per_day": 300,
+    "trail_exposure": "glacial",
+    "season": "spring"
+  },
+  {
+    "id": 10,
+    "name": "Kathmandu Valley",
+    "cluster": "Cultural Heritage",
+    "alt_name": "Kathmandu Durbar Square, Pashupatinath, Boudhanath, Swayambhunath",
+    "region": "Central Nepal",
+    "altitude_min": 1300,
+    "altitude_max": 1400,
+    "terrain": "Urban, city",
+    "duration_min": 2,
+    "duration_max": 4,
+    "cost_per_day_npr": 3375,
+    "cost_per_day_usd": 25,
+    "difficulty": "Easy",
+    "best_seasons": [
+      "spring",
+      "autumn",
+      "winter"
+    ],
+    "activities": [
+      "cultural",
+      "spiritual",
+      "photography",
+      "city"
+    ],
+    "permits": [
+      "No trekking permits required"
+    ],
+    "description": "The cultural heart of Nepal, home to seven UNESCO World Heritage Sites within a 15km radius. Explore ancient durbar squares, sacred Hindu temples at Pashupatinath, the massive Boudhanath stupa, and the monkey temple at Swayambhunath with panoramic valley views.",
+    "highlights": [
+      "Pashupatinath Temple",
+      "Boudhanath Stupa",
+      "Swayambhunath Stupa",
+      "Patan & Bhaktapur Durbar Squares",
+      "Thamel nightlife"
+    ],
+    "image_url": "/images/kathmandu.jpg",
+    "requires_guide": false,
+    "fitness_level": "sedentary",
+    "ams_risk": "Low",
+    "ascent_rate_per_day": 50,
+    "trail_exposure": "city",
+    "season": "autumn"
+  },
+  {
+    "id": 11,
+    "name": "Lumbini",
+    "cluster": "Cultural Heritage",
+    "alt_name": "Birthplace of Buddha",
+    "region": "Lumbini Province",
+    "altitude_min": 100,
+    "altitude_max": 150,
+    "terrain": "Plains, gardens",
+    "duration_min": 2,
+    "duration_max": 3,
+    "cost_per_day_npr": 3375,
+    "cost_per_day_usd": 25,
+    "difficulty": "Easy",
+    "best_seasons": [
+      "autumn",
+      "winter",
+      "spring"
+    ],
+    "activities": [
+      "spiritual",
+      "cultural",
+      "photography"
+    ],
+    "permits": [
+      "No permits required"
+    ],
+    "description": "The sacred birthplace of Lord Buddha, a UNESCO World Heritage Site. Walk through the Maya Devi Temple, the Sacred Garden, and explore monasteries built by Buddhist communities from around the world. A deeply peaceful and spiritual destination.",
+    "highlights": [
+      "Maya Devi Temple",
+      "Sacred Garden",
+      "World Peace Pagoda",
+      "International monasteries",
+      "Buddhist pilgrimage site"
+    ],
+    "image_url": "/images/lumbini.jpg",
+    "requires_guide": false,
+    "fitness_level": "sedentary",
+    "ams_risk": "Low",
+    "ascent_rate_per_day": 20,
+    "trail_exposure": "plains",
+    "season": "autumn"
+  },
+  {
+    "id": 12,
+    "name": "Bandipur",
+    "cluster": "Cultural Heritage",
+    "alt_name": "Bandipur Village",
+    "region": "Gandaki Province",
+    "altitude_min": 1000,
+    "altitude_max": 1030,
+    "terrain": "Hill, village",
+    "duration_min": 1,
+    "duration_max": 3,
+    "cost_per_day_npr": 3375,
+    "cost_per_day_usd": 25,
+    "difficulty": "Easy",
+    "best_seasons": [
+      "spring",
+      "autumn",
+      "winter"
+    ],
+    "activities": [
+      "cultural",
+      "photography",
+      "family"
+    ],
+    "permits": [
+      "No permits required"
+    ],
+    "description": "A beautifully preserved Newari hill town perched on a ridge overlooking the Marsyangdi Valley. Known for its traditional architecture, stunning mountain views, and laid-back atmosphere. Perfect for a cultural escape between Kathmandu and Pokhara.",
+    "highlights": [
+      "Traditional Newari houses",
+      "Himalayan views",
+      "Siddha Gufa cave",
+      "Tundikhel viewpoint",
+      "Newari cuisine"
+    ],
+    "image_url": "/images/bandipur.jpg",
+    "requires_guide": false,
+    "fitness_level": "sedentary",
+    "ams_risk": "Low",
+    "ascent_rate_per_day": 50,
+    "trail_exposure": "hill",
+    "season": "autumn"
+  },
+  {
+    "id": 13,
+    "name": "Panauti",
+    "cluster": "Cultural Heritage",
+    "alt_name": "Panauti Village",
+    "region": "Bagmati Province",
+    "altitude_min": 1400,
+    "altitude_max": 1500,
+    "terrain": "Hill, village",
+    "duration_min": 1,
+    "duration_max": 2,
+    "cost_per_day_npr": 2700,
+    "cost_per_day_usd": 20,
+    "difficulty": "Easy",
+    "best_seasons": [
+      "spring",
+      "autumn",
+      "winter"
+    ],
+    "activities": [
+      "cultural",
+      "photography",
+      "spiritual"
+    ],
+    "permits": [
+      "No permits required"
+    ],
+    "description": "A historic Newari town at the confluence of the Roshi and Punyamati rivers. Known for its three sacred rivers, 16th-century temples, and traditional architecture. A peaceful alternative to crowded Kathmandu with rich cultural heritage.",
+    "highlights": [
+      "Indreshwor Temple",
+      "River confluence (Triveni)",
+      "Namobuddha Monastery",
+      "Newari architecture",
+      "Traditional pottery"
+    ],
+    "image_url": "/images/panauti.jpg",
+    "requires_guide": false,
+    "fitness_level": "sedentary",
+    "ams_risk": "Low",
+    "ascent_rate_per_day": 50,
+    "trail_exposure": "hill",
+    "season": "autumn"
+  },
+  {
+    "id": 14,
+    "name": "Bhaktapur Durbar Square",
+    "cluster": "Cultural Heritage",
+    "alt_name": "Khwopa",
+    "region": "Bagmati Province",
+    "altitude_min": 1400,
+    "altitude_max": 1400,
+    "terrain": "Urban, city",
+    "duration_min": 1,
+    "duration_max": 2,
+    "cost_per_day_npr": 3375,
+    "cost_per_day_usd": 25,
+    "difficulty": "Easy",
+    "best_seasons": [
+      "spring",
+      "autumn",
+      "winter",
+      "summer"
+    ],
+    "activities": [
+      "cultural",
+      "photography",
+      "city"
+    ],
+    "permits": [
+      "No permits required"
+    ],
+    "description": "The best-preserved medieval city in Nepal, a UNESCO World Heritage Site. Walk through ancient alleys lined with brick houses, visit the 55-Window Palace, the Nyatapola Temple, and taste the famous king curd (juju dhau).",
+    "highlights": [
+      "Nyatapola Temple",
+      "55-Window Palace",
+      "Pottery Square",
+      "King curd (Juju Dhau)",
+      "Woodcarving art"
+    ],
+    "image_url": "/images/bhaktapur.jpg",
+    "requires_guide": false,
+    "fitness_level": "sedentary",
+    "ams_risk": "Low",
+    "ascent_rate_per_day": 20,
+    "trail_exposure": "city",
+    "season": "autumn"
+  },
+  {
+    "id": 15,
+    "name": "Chitwan National Park",
+    "cluster": "Wildlife and Terai",
+    "alt_name": "Chitwan Safari",
+    "region": "Bagmati Province",
+    "altitude_min": 100,
+    "altitude_max": 750,
+    "terrain": "Jungle, riverine",
+    "duration_min": 2,
+    "duration_max": 5,
+    "cost_per_day_npr": 9450,
+    "cost_per_day_usd": 70,
+    "difficulty": "Easy",
+    "best_seasons": [
+      "autumn",
+      "winter",
+      "spring"
+    ],
+    "activities": [
+      "wildlife",
+      "photography",
+      "adventure",
+      "family"
+    ],
+    "permits": [
+      "National Park Entry (NPR 1,500/day for foreigners)"
+    ],
+    "description": "Nepal's first national park and a UNESCO World Heritage Site. Home to the one-horned rhino, Bengal tiger, and over 500 bird species. Enjoy jeep safaris, canoe rides, and guided jungle walks through dense sal forests and grasslands.",
+    "highlights": [
+      "One-horned rhinoceros",
+      "Bengal tiger tracking",
+      "Canoe rides",
+      "Elephant safari",
+      "Tharu cultural show"
+    ],
+    "image_url": "/images/chitwan.jpg",
+    "requires_guide": false,
+    "fitness_level": "sedentary",
+    "ams_risk": "Low",
+    "ascent_rate_per_day": 20,
+    "trail_exposure": "jungle",
+    "season": "autumn"
+  },
+  {
+    "id": 16,
+    "name": "Bardia National Park",
+    "cluster": "Wildlife and Terai",
+    "alt_name": "Bardia Safari",
+    "region": "Lumbini Province",
+    "altitude_min": 70,
+    "altitude_max": 350,
+    "terrain": "Jungle, riverine",
+    "duration_min": 3,
+    "duration_max": 5,
+    "cost_per_day_npr": 10800,
+    "cost_per_day_usd": 80,
+    "difficulty": "Easy",
+    "best_seasons": [
+      "autumn",
+      "winter",
+      "spring"
+    ],
+    "activities": [
+      "wildlife",
+      "photography",
+      "adventure"
+    ],
+    "permits": [
+      "National Park Entry (NPR 2,000/day for foreigners)"
+    ],
+    "description": "Nepal's largest and most remote national park, offering a true wilderness experience. With a fraction of Chitwan's visitors, Bardia provides intimate wildlife encounters including tigers, elephants, crocodiles, and Gangetic dolphins in the Karnali River.",
+    "highlights": [
+      "Bengal tiger sightings",
+      "Elephant herd tracking",
+      "Karnali River rafting",
+      "Crocodile breeding center",
+      "Tharu village walks"
+    ],
+    "image_url": "/images/bardia.jpg",
+    "requires_guide": true,
+    "fitness_level": "moderate",
+    "ams_risk": "Low",
+    "ascent_rate_per_day": 20,
+    "trail_exposure": "jungle",
+    "season": "autumn"
+  },
+  {
+    "id": 17,
+    "name": "Koshi Tappu Wildlife Reserve",
+    "cluster": "Wildlife and Terai",
+    "alt_name": "Koshi Tappu",
+    "region": "Koshi Province",
+    "altitude_min": 70,
+    "altitude_max": 100,
+    "terrain": "Wetland, grassland",
+    "duration_min": 2,
+    "duration_max": 3,
+    "cost_per_day_npr": 5400,
+    "cost_per_day_usd": 40,
+    "difficulty": "Easy",
+    "best_seasons": [
+      "autumn",
+      "winter",
+      "spring"
+    ],
+    "activities": [
+      "wildlife",
+      "bird watching",
+      "photography"
+    ],
+    "permits": [
+      "Wildlife Reserve Entry (NPR 1,000/day)"
+    ],
+    "description": "Nepal's largest bird sanctuary and a Ramsar site on the Saptakoshi River floodplain. A paradise for bird watchers with over 485 species including the endangered swamp francolin and Bengal florican. Also home to wild water buffalo and Gangetic dolphins.",
+    "highlights": [
+      "Bird watching paradise (485+ species)",
+      "Wild water buffalo",
+      "Gangetic dolphins",
+      "Sunrise over Koshi River",
+      "Marshland ecosystems"
+    ],
+    "image_url": "/images/koshi-tappu.jpg",
+    "requires_guide": false,
+    "fitness_level": "sedentary",
+    "ams_risk": "Low",
+    "ascent_rate_per_day": 10,
+    "trail_exposure": "wetland",
+    "season": "winter"
+  },
+  {
+    "id": 18,
+    "name": "Pokhara",
+    "cluster": "Adventure and Mid-Hill",
+    "alt_name": "Pokhara Valley",
+    "region": "Gandaki Province",
+    "altitude_min": 800,
+    "altitude_max": 1100,
+    "terrain": "Lake city, hill",
+    "duration_min": 3,
+    "duration_max": 7,
+    "cost_per_day_npr": 5400,
+    "cost_per_day_usd": 40,
+    "difficulty": "Easy",
+    "best_seasons": [
+      "spring",
+      "autumn",
+      "winter"
+    ],
+    "activities": [
+      "adventure",
+      "photography",
+      "family",
+      "trekking",
+      "rafting"
+    ],
+    "permits": [
+      "No trekking permits required"
+    ],
+    "description": "Nepal's adventure capital nestled beside Phewa Lake with spectacular views of the Annapurna range. The launching point for most Annapurna treks. Offers paragliding, zip-lining, ultralight flights, kayaking, and peaceful lakeside relaxation.",
+    "highlights": [
+      "Phewa Lake boating",
+      "Paragliding off Sarangkot",
+      "World Peace Pagoda",
+      "Devi's Fall & Gupteshwor Cave",
+      "Annapurna sunrise views"
+    ],
+    "image_url": "/images/pokhara.jpg",
+    "requires_guide": false,
+    "fitness_level": "sedentary",
+    "ams_risk": "Low",
+    "ascent_rate_per_day": 100,
+    "trail_exposure": "hill",
+    "season": "autumn"
+  },
+  {
+    "id": 19,
+    "name": "Ghorepani Poon Hill",
+    "cluster": "Adventure and Mid-Hill",
+    "alt_name": "Poon Hill Trek",
+    "region": "Annapurna Region",
+    "altitude_min": 1070,
+    "altitude_max": 3210,
+    "terrain": "Forested, hill",
+    "duration_min": 4,
+    "duration_max": 6,
+    "cost_per_day_npr": 4050,
+    "cost_per_day_usd": 30,
+    "difficulty": "Easy",
+    "best_seasons": [
+      "spring",
+      "autumn",
+      "winter"
+    ],
+    "activities": [
+      "trekking",
+      "photography",
+      "cultural"
+    ],
+    "permits": [
+      "TIMS Card (Rs 2,700)",
+      "ACAP Entry (NPR 3,000)"
+    ],
+    "description": "Nepal's most popular short trek, renowned for the spectacular sunrise view from Poon Hill (3,210m). The panoramic vista takes in Dhaulagiri, Annapurna, Machhapuchhre, and over 20 other Himalayan peaks. Perfect for beginners and families.",
+    "highlights": [
+      "Poon Hill sunrise panorama",
+      "Rhododendron forests",
+      "Gurung villages",
+      "Short duration (4-6 days)",
+      "Beginner-friendly"
+    ],
+    "image_url": "/images/poon-hill.jpg",
+    "requires_guide": false,
+    "fitness_level": "moderate",
+    "ams_risk": "Low",
+    "ascent_rate_per_day": 400,
+    "trail_exposure": "forest",
+    "season": "autumn"
+  },
+  {
+    "id": 20,
+    "name": "Sarangkot",
+    "cluster": "Adventure and Mid-Hill",
+    "alt_name": "Sarangkot Viewpoint",
+    "region": "Gandaki Province",
+    "altitude_min": 800,
+    "altitude_max": 1600,
+    "terrain": "Hill, viewpoint",
+    "duration_min": 1,
+    "duration_max": 2,
+    "cost_per_day_npr": 3375,
+    "cost_per_day_usd": 25,
+    "difficulty": "Easy",
+    "best_seasons": [
+      "spring",
+      "autumn",
+      "winter"
+    ],
+    "activities": [
+      "photography",
+      "adventure",
+      "family"
+    ],
+    "permits": [
+      "No permits required"
+    ],
+    "description": "The premier viewpoint above Pokhara, famous for paragliding takeoffs and unparalleled sunrise views of the Annapurna and Dhaulagiri ranges. A short drive or hike from Pokhara. Also the starting point for the Sarangkot to Pame trek.",
+    "highlights": [
+      "Paragliding hub",
+      "Annapurna sunrise",
+      "Panoramic photography",
+      "Short hike options",
+      "Nepal's best paragliding"
+    ],
+    "image_url": "/images/sarangkot.jpg",
+    "requires_guide": false,
+    "fitness_level": "sedentary",
+    "ams_risk": "Low",
+    "ascent_rate_per_day": 200,
+    "trail_exposure": "hill",
+    "season": "autumn"
+  },
+  {
+    "id": 21,
+    "name": "Nagarkot",
+    "cluster": "Adventure and Mid-Hill",
+    "alt_name": "Nagarkot Viewpoint",
+    "region": "Bagmati Province",
+    "altitude_min": 1400,
+    "altitude_max": 2175,
+    "terrain": "Hill, viewpoint",
+    "duration_min": 1,
+    "duration_max": 2,
+    "cost_per_day_npr": 3375,
+    "cost_per_day_usd": 25,
+    "difficulty": "Easy",
+    "best_seasons": [
+      "spring",
+      "autumn",
+      "winter"
+    ],
+    "activities": [
+      "photography",
+      "family",
+      "cultural"
+    ],
+    "permits": [
+      "No permits required"
+    ],
+    "description": "A popular hill station just outside Kathmandu, famous for its sunrise view of the Himalayas spanning from Everest in the east to Annapurna in the west. Offers easy hiking trails and a peaceful escape from the city.",
+    "highlights": [
+      "Everest sunrise view",
+      "Kathmandu Valley panorama",
+      "Short hiking trails",
+      "Sunset views",
+      "Weekend getaway"
+    ],
+    "image_url": "/images/nagarkot.jpg",
+    "requires_guide": false,
+    "fitness_level": "sedentary",
+    "ams_risk": "Low",
+    "ascent_rate_per_day": 200,
+    "trail_exposure": "hill",
+    "season": "autumn"
+  },
+  {
+    "id": 22,
+    "name": "Ghandruk",
+    "cluster": "Adventure and Mid-Hill",
+    "alt_name": "Ghandruk Village",
+    "region": "Annapurna Region",
+    "altitude_min": 1800,
+    "altitude_max": 2100,
+    "terrain": "Hill, village",
+    "duration_min": 2,
+    "duration_max": 3,
+    "cost_per_day_npr": 3375,
+    "cost_per_day_usd": 25,
+    "difficulty": "Easy",
+    "best_seasons": [
+      "spring",
+      "autumn",
+      "winter"
+    ],
+    "activities": [
+      "cultural",
+      "photography",
+      "trekking"
+    ],
+    "permits": [
+      "ACAP Entry (NPR 3,000)"
+    ],
+    "description": "A beautiful Gurung village on the Annapurna trekking route known for its traditional stone houses, museum, and spectacular views of Annapurna South, Machhapuchhre, and Hiunchuli. A perfect cultural stop on any Annapurna itinerary.",
+    "highlights": [
+      "Gurung cultural museum",
+      "Traditional stone houses",
+      "Annapurna South views",
+      "Rhododendron forests",
+      "Village homestay experience"
+    ],
+    "image_url": "/images/ghandruk.jpg",
+    "requires_guide": false,
+    "fitness_level": "moderate",
+    "ams_risk": "Low",
+    "ascent_rate_per_day": 200,
+    "trail_exposure": "hill",
+    "season": "autumn"
+  },
+  {
+    "id": 23,
+    "name": "Rara Lake",
+    "cluster": "Remote Wilderness",
+    "alt_name": "Queen of Lakes",
+    "region": "Karnali Province",
+    "altitude_min": 980,
+    "altitude_max": 3490,
+    "terrain": "Remote, alpine, forested",
+    "duration_min": 8,
+    "duration_max": 12,
+    "cost_per_day_npr": 8100,
+    "cost_per_day_usd": 60,
+    "difficulty": "Moderate",
+    "best_seasons": [
+      "summer",
+      "autumn"
+    ],
+    "activities": [
+      "trekking",
+      "photography",
+      "wildlife",
+      "ecology"
+    ],
+    "permits": [
+      "Rara National Park Entry (NPR 3,000)"
+    ],
+    "description": "Nepal's largest lake (10.8 sq km) at 2,990m, nestled in the remote Karnali region. The deep blue waters surrounded by pine forests and snow-capped peaks make it one of the most beautiful yet least visited destinations in Nepal. A true hidden gem.",
+    "highlights": [
+      "Crystal-clear alpine lake",
+      "Remote wilderness",
+      "Bird watching",
+      "Rara National Park",
+      "Untouched natural beauty"
+    ],
+    "image_url": "/images/rara.jpg",
+    "requires_guide": false,
+    "fitness_level": "active",
+    "ams_risk": "Moderate",
+    "ascent_rate_per_day": 350,
+    "trail_exposure": "forest",
+    "season": "summer"
+  },
+  {
+    "id": 24,
+    "name": "Upper Mustang",
+    "cluster": "Remote Wilderness",
+    "alt_name": "Mustang Kingdom",
+    "region": "Mustang District",
+    "altitude_min": 2700,
+    "altitude_max": 4200,
+    "terrain": "Arid, high desert",
+    "duration_min": 10,
+    "duration_max": 14,
+    "cost_per_day_npr": 20250,
+    "cost_per_day_usd": 150,
+    "difficulty": "Moderate",
+    "best_seasons": [
+      "summer",
+      "autumn"
+    ],
+    "activities": [
+      "cultural",
+      "trekking",
+      "photography",
+      "spiritual"
+    ],
+    "permits": [
+      "Restricted Area Permit (Rs 67,500/10 days)"
+    ],
+    "description": "The ancient Buddhist kingdom of Lo Manthang, a restricted area that requires a licensed guide and significant permit fees. The landscape resembles the Tibetan plateau — arid, wind-sculpted cliffs, ancient caves, and whitewashed monasteries. A journey through living history.",
+    "highlights": [
+      "Lo Manthang walled city",
+      "Ancient cave monasteries",
+      "Tibetan Buddhist culture",
+      "Tiji festival (spring)",
+      "Trans-Himalayan desert landscape"
+    ],
+    "image_url": "/images/upper-mustang.jpg",
+    "requires_guide": true,
+    "fitness_level": "active",
+    "ams_risk": "Moderate",
+    "ascent_rate_per_day": 300,
+    "trail_exposure": "high_desert",
+    "season": "summer"
+  },
+  {
+    "id": 25,
+    "name": "Nar Phu Valley",
+    "cluster": "Remote Wilderness",
+    "alt_name": "Nar Phu Trek",
+    "region": "Manang District",
+    "altitude_min": 2000,
+    "altitude_max": 5416,
+    "terrain": "Remote, alpine, arid",
+    "duration_min": 12,
+    "duration_max": 16,
+    "cost_per_day_npr": 9450,
+    "cost_per_day_usd": 70,
+    "difficulty": "Difficult",
+    "best_seasons": [
+      "spring",
+      "autumn"
+    ],
+    "activities": [
+      "trekking",
+      "photography",
+      "cultural",
+      "adventure"
+    ],
+    "permits": [
+      "Restricted Area Permit (Rs 12,150/week)",
+      "ACAP (NPR 3,000)"
+    ],
+    "description": "A remote restricted area trek combining pristine landscapes with authentic Tibetan Buddhist culture. Explore the hidden valleys of Nar and Phu, cross the challenging Kang La Pass (5,320m), and visit ancient monasteries untouched by modern tourism.",
+    "highlights": [
+      "Kang La Pass crossing",
+      "Remote Buddhist monasteries",
+      "Nar & Phu villages",
+      "Pristine wilderness",
+      "Himalayan views"
+    ],
+    "image_url": "/images/nar-phu.jpg",
+    "requires_guide": true,
+    "fitness_level": "athletic",
+    "ams_risk": "High",
+    "ascent_rate_per_day": 300,
+    "trail_exposure": "mountain",
+    "season": "autumn"
+  },
+  {
+    "id": 26,
+    "name": "Tsum Valley",
+    "cluster": "Remote Wilderness",
+    "alt_name": "Tsum Trek",
+    "region": "Gandaki Province",
+    "altitude_min": 1900,
+    "altitude_max": 3700,
+    "terrain": "Remote, alpine, forested",
+    "duration_min": 12,
+    "duration_max": 16,
+    "cost_per_day_npr": 8100,
+    "cost_per_day_usd": 60,
+    "difficulty": "Moderate",
+    "best_seasons": [
+      "spring",
+      "autumn"
+    ],
+    "activities": [
+      "trekking",
+      "cultural",
+      "photography",
+      "spiritual"
+    ],
+    "permits": [
+      "Restricted Area Permit (Rs 4,725/week)",
+      "Manaslu CA (NPR 3,000)"
+    ],
+    "description": "Known as the 'Hidden Valley of Happiness', Tsum Valley is a sacred Buddhist pilgrimage site rich in ancient monasteries, mani walls, and chortens. The valley's isolation has preserved Tibetan Buddhist culture in its purest form. Can be combined with the Manaslu Circuit.",
+    "highlights": [
+      "Mugan Gompa",
+      "Tibetan Buddhist pilgrimage sites",
+      "Ancient mani walls",
+      "Serene valley landscapes",
+      "Cultural authenticity"
+    ],
+    "image_url": "/images/tsum.jpg",
+    "requires_guide": true,
+    "fitness_level": "active",
+    "ams_risk": "Moderate",
+    "ascent_rate_per_day": 300,
+    "trail_exposure": "mountain",
+    "season": "spring"
+  },
+  {
+    "id": 27,
+    "name": "Humla",
+    "cluster": "Remote Wilderness",
+    "alt_name": "Humla Trek, Mount Kailash",
+    "region": "Karnali Province",
+    "altitude_min": 1500,
+    "altitude_max": 4500,
+    "terrain": "Remote, arid, high desert",
+    "duration_min": 14,
+    "duration_max": 20,
+    "cost_per_day_npr": 12150,
+    "cost_per_day_usd": 90,
+    "difficulty": "Difficult",
+    "best_seasons": [
+      "summer",
+      "autumn"
+    ],
+    "activities": [
+      "trekking",
+      "photography",
+      "spiritual",
+      "cultural"
+    ],
+    "permits": [
+      "Restricted Area Permit (Rs 6,750/person/week)",
+      "Limi Valley Trek Permit"
+    ],
+    "description": "Nepal's most remote and isolated region in the far northwest, bordering Tibet. The trek to Limi Valley offers a true expedition experience with ancient Bon and Tibetan Buddhist traditions, the remote village of Simikot, and views of Mount Kailash across the border.",
+    "highlights": [
+      "Simikot town",
+      "Limi Valley",
+      "Mount Kailash views",
+      "Bon & Buddhist traditions",
+      "Authentic remote Nepal"
+    ],
+    "image_url": "/images/humla.jpg",
+    "requires_guide": true,
+    "fitness_level": "athletic",
+    "ams_risk": "High",
+    "ascent_rate_per_day": 300,
+    "trail_exposure": "high_desert",
+    "season": "summer"
+  },
+  {
+    "id": 28,
+    "name": "Janakpur",
+    "cluster": "Cultural Heritage",
+    "alt_name": "Janakpurdham",
+    "region": "Madhesh Province",
+    "altitude_min": 74,
+    "altitude_max": 80,
+    "terrain": "Plains, urban",
+    "duration_min": 1,
+    "duration_max": 3,
+    "cost_per_day_npr": 2700,
+    "cost_per_day_usd": 20,
+    "difficulty": "Easy",
+    "best_seasons": ["autumn", "winter", "spring"],
+    "activities": ["cultural", "spiritual", "photography"],
+    "permits": ["No permits required"],
+    "description": "The historic capital of the ancient Mithila kingdom and birthplace of Goddess Sita. Janakpur is home to the magnificent Janaki Mandir, a stunning neo-classical temple dedicated to Sita. The city comes alive during the Vivah Panchami festival, reenacting the wedding of Rama and Sita with grand processions and celebrations. The Mithila art form, with its intricate paintings, originated here.",
+    "highlights": [
+      "Janaki Mandir",
+      "Vivah Panchami festival",
+      "Mithila art & paintings",
+      "Dhanush Sagar lake",
+      "Ram Sita marriage celebrations"
+    ],
+    "image_url": "/images/janakpur.jpg",
+    "requires_guide": false,
+    "fitness_level": "sedentary",
+    "ams_risk": "Low",
+    "ascent_rate_per_day": 20,
+    "trail_exposure": "city",
+    "season": "autumn"
+  },
+  {
+    "id": 29,
+    "name": "Tansen",
+    "cluster": "Cultural Heritage",
+    "alt_name": "Palpa",
+    "region": "Lumbini Province",
+    "altitude_min": 850,
+    "altitude_max": 1350,
+    "terrain": "Hill, town",
+    "duration_min": 1,
+    "duration_max": 3,
+    "cost_per_day_npr": 3375,
+    "cost_per_day_usd": 25,
+    "difficulty": "Easy",
+    "best_seasons": ["spring", "autumn", "winter"],
+    "activities": ["cultural", "photography", "trekking"],
+    "permits": ["No permits required"],
+    "description": "A historic Newari hill town perched on a ridge in the Mahabharat range. Tansen offers stunning views of the Himalayas, well-preserved traditional architecture, and the magnificent Tansen Durbar. Known for its metalwork, dhaka fabric, and peaceful atmosphere. The town is a gateway to the Ridi Bazaar and the Kali Gandaki River.",
+    "highlights": [
+      "Tansen Durbar (Palpa Palace)",
+      "Sitalpati viewpoint",
+      "Bhagwati Temple",
+      "Dhaka fabric weaving",
+      "Himalayan sunrises"
+    ],
+    "image_url": "/images/tansen.jpg",
+    "requires_guide": false,
+    "fitness_level": "sedentary",
+    "ams_risk": "Low",
+    "ascent_rate_per_day": 50,
+    "trail_exposure": "hill",
+    "season": "autumn"
+  },
+  {
+    "id": 30,
+    "name": "Ilam",
+    "cluster": "Adventure and Mid-Hill",
+    "alt_name": "Ilam Tea Gardens",
+    "region": "Koshi Province",
+    "altitude_min": 800,
+    "altitude_max": 1500,
+    "terrain": "Hill, tea gardens",
+    "duration_min": 2,
+    "duration_max": 4,
+    "cost_per_day_npr": 4050,
+    "cost_per_day_usd": 30,
+    "difficulty": "Easy",
+    "best_seasons": ["spring", "autumn", "winter"],
+    "activities": ["photography", "family", "cultural", "trekking"],
+    "permits": ["No permits required"],
+    "description": "Nepal's premier tea-growing region in the eastern hills, famously called the 'Queen of Hills'. Ilam's rolling green tea estates, misty mornings, and views of Kanchenjunga make it a photographer's paradise. Visit the iconic Kanyam tea gardens, hike to the Mai Pokhari lake, and taste some of Nepal's finest orthodox teas.",
+    "highlights": [
+      "Kanyam tea gardens",
+      "Tea tasting & factory tours",
+      "Mai Pokhari lake",
+      "Kanchenjunga views",
+      "Antu Danda viewpoint"
+    ],
+    "image_url": "/images/ilam.jpg",
+    "requires_guide": false,
+    "fitness_level": "sedentary",
+    "ams_risk": "Low",
+    "ascent_rate_per_day": 100,
+    "trail_exposure": "hill",
+    "season": "spring"
+  },
+  {
+    "id": 31,
+    "name": "Gorkha",
+    "cluster": "Cultural Heritage",
+    "alt_name": "Gorkha Durbar",
+    "region": "Gandaki Province",
+    "altitude_min": 700,
+    "altitude_max": 1300,
+    "terrain": "Hill, historic",
+    "duration_min": 1,
+    "duration_max": 2,
+    "cost_per_day_npr": 3375,
+    "cost_per_day_usd": 25,
+    "difficulty": "Easy",
+    "best_seasons": ["spring", "autumn", "winter"],
+    "activities": ["cultural", "photography", "trekking"],
+    "permits": ["No permits required"],
+    "description": "The historic birthplace of King Prithvi Narayan Shah, the unifier of Nepal. Perched on a hilltop, Gorkha Durbar is a stunning palace-fortress with panoramic Himalayan views. The town is the spiritual home of the famous Gorkha soldiers. A perfect day trip from Kathmandu or stop between Pokhara and Kathmandu.",
+    "highlights": [
+      "Gorkha Durbar Palace",
+      "Gorkhanath Temple",
+      "Unifier of Nepal museum",
+      "Manakamana Temple nearby",
+      "Panoramic Himalayan views"
+    ],
+    "image_url": "/images/gorkha.jpg",
+    "requires_guide": false,
+    "fitness_level": "moderate",
+    "ams_risk": "Low",
+    "ascent_rate_per_day": 100,
+    "trail_exposure": "hill",
+    "season": "autumn"
+  },
+  {
+    "id": 32,
+    "name": "Dhulikhel",
+    "cluster": "Adventure and Mid-Hill",
+    "alt_name": "Dhulikhel Hill Station",
+    "region": "Bagmati Province",
+    "altitude_min": 1400,
+    "altitude_max": 1600,
+    "terrain": "Hill, viewpoint",
+    "duration_min": 1,
+    "duration_max": 2,
+    "cost_per_day_npr": 3375,
+    "cost_per_day_usd": 25,
+    "difficulty": "Easy",
+    "best_seasons": ["spring", "autumn", "winter"],
+    "activities": ["photography", "cultural", "trekking", "family"],
+    "permits": ["No permits required"],
+    "description": "A charming Newari town on the Arnico Highway, just 30km from Kathmandu. Dhulikhel offers spectacular Himalayan panoramas stretching from Annapurna to Everest without the crowds of Nagarkot. Explore the ancient Newari settlement, hike to Namobuddha Monastery, and enjoy the tranquility of the surrounding hills.",
+    "highlights": [
+      "Himalayan sunrise panorama",
+      "Namobuddha Monastery",
+      "Newari architecture",
+      "Dhulikhel Viewpoint",
+      "Short hiking trails"
+    ],
+    "image_url": "/images/dhulikhel.jpg",
+    "requires_guide": false,
+    "fitness_level": "sedentary",
+    "ams_risk": "Low",
+    "ascent_rate_per_day": 100,
+    "trail_exposure": "hill",
+    "season": "autumn"
+  },
+  {
+    "id": 33,
+    "name": "Jomsom",
+    "cluster": "Adventure and Mid-Hill",
+    "alt_name": "Mustang Gateway",
+    "region": "Mustang District",
+    "altitude_min": 2700,
+    "altitude_max": 2800,
+    "terrain": "Arid, high desert",
+    "duration_min": 2,
+    "duration_max": 4,
+    "cost_per_day_npr": 6750,
+    "cost_per_day_usd": 50,
+    "difficulty": "Easy",
+    "best_seasons": ["spring", "autumn", "summer"],
+    "activities": ["photography", "cultural", "trekking", "adventure"],
+    "permits": ["No permits required (within Jomsom area)"],
+    "description": "The gateway to Upper Mustang and the largest settlement in the Mustang region. Jomsom is famous for the powerful Muktinath winds, apple orchards, and dramatic Trans-Himalayan landscape. Accessible by flight from Pokhara, it's the starting point for treks to Muktinath, Upper Mustang, and the Annapurna Circuit.",
+    "highlights": [
+      "Apple orchards & brandy",
+      "Muktinath day hike",
+      "Marpha village",
+      "Muktinath winds phenomenon",
+      "Dhaulagiri views"
+    ],
+    "image_url": "/images/jomsom.jpg",
+    "requires_guide": false,
+    "fitness_level": "moderate",
+    "ams_risk": "Moderate",
+    "ascent_rate_per_day": 200,
+    "trail_exposure": "high_desert",
+    "season": "autumn"
+  },
+  {
+    "id": 34,
+    "name": "Tatopani",
+    "cluster": "Adventure and Mid-Hill",
+    "alt_name": "Tatopani Hot Springs",
+    "region": "Annapurna Region",
+    "altitude_min": 1100,
+    "altitude_max": 1200,
+    "terrain": "River valley, village",
+    "duration_min": 1,
+    "duration_max": 2,
+    "cost_per_day_npr": 4050,
+    "cost_per_day_usd": 30,
+    "difficulty": "Easy",
+    "best_seasons": ["spring", "autumn", "winter"],
+    "activities": ["relaxation", "photography", "cultural"],
+    "permits": ["No permits required"],
+    "description": "A popular stop on the Annapurna Circuit, famous for its natural hot springs on the banks of the Kali Gandaki River. Literally meaning 'hot water' in Nepali, Tatopani is the perfect place to soak tired trekking muscles in therapeutic mineral baths surrounded by Himalayan scenery.",
+    "highlights": [
+      "Natural hot springs",
+      "Kali Gandaki riverbank",
+      "Dhaulagiri views",
+      "Apple brandy tasting",
+      "Annapurna Circuit stopover"
+    ],
+    "image_url": "/images/tatopani.jpg",
+    "requires_guide": false,
+    "fitness_level": "sedentary",
+    "ams_risk": "Low",
+    "ascent_rate_per_day": 100,
+    "trail_exposure": "river_valley",
+    "season": "autumn"
+  },
+  {
+    "id": 35,
+    "name": "Hetauda",
+    "cluster": "Adventure and Mid-Hill",
+    "alt_name": "Hetauda Valley",
+    "region": "Bagmati Province",
+    "altitude_min": 340,
+    "altitude_max": 500,
+    "terrain": "Valley, urban",
+    "duration_min": 1,
+    "duration_max": 2,
+    "cost_per_day_npr": 3375,
+    "cost_per_day_usd": 25,
+    "difficulty": "Easy",
+    "best_seasons": ["spring", "autumn", "winter"],
+    "activities": ["cultural", "photography", "nature"],
+    "permits": ["No permits required"],
+    "description": "A rapidly growing city at the crossroads of Kathmandu, Chitwan, and Birgunj. Hetauda is known for its scenic setting in the Rapti Valley, the nearby Martyr's Memorial Park with its botanical gardens, and the scenic hike up to the Churia Hills. A pleasant stopover with easy access to the Maulakalika Temple.",
+    "highlights": [
+      "Martyr's Memorial Park & botanical garden",
+      "Maulakalika Temple",
+      "Churia Hill hiking",
+      "Rapti River views",
+      "Gateway between hills & Terai"
+    ],
+    "image_url": "/images/hetauda.jpg",
+    "requires_guide": false,
+    "fitness_level": "sedentary",
+    "ams_risk": "Low",
+    "ascent_rate_per_day": 50,
+    "trail_exposure": "valley",
+    "season": "autumn"
+  },
+  {
+    "id": 36,
+    "name": "Dhankuta",
+    "cluster": "Adventure and Mid-Hill",
+    "alt_name": "Dhankuta Bazaar",
+    "region": "Koshi Province",
+    "altitude_min": 1000,
+    "altitude_max": 1900,
+    "terrain": "Hill, town",
+    "duration_min": 2,
+    "duration_max": 3,
+    "cost_per_day_npr": 3375,
+    "cost_per_day_usd": 25,
+    "difficulty": "Easy",
+    "best_seasons": ["spring", "autumn", "winter"],
+    "activities": ["photography", "cultural", "trekking"],
+    "permits": ["No permits required"],
+    "description": "The administrative headquarters of eastern Nepal, perched on a ridge with breathtaking views of the Himalayas from Everest to Kanchenjunga. Dhankuta is famous for its scenic landscape, the historic Dhankuta Bazaar, and as the starting point for treks to the Arun Valley and Makalu region.",
+    "highlights": [
+      "Panoramic Himalayan views",
+      "Dhankuta Bazaar",
+      "Arun Valley vistas",
+      "Hile & Tinjure viewpoints",
+      "Rhododendron forests"
+    ],
+    "image_url": "/images/dhankuta.jpg",
+    "requires_guide": false,
+    "fitness_level": "moderate",
+    "ams_risk": "Low",
+    "ascent_rate_per_day": 100,
+    "trail_exposure": "hill",
+    "season": "autumn"
+  },
+  {
+    "id": 37,
+    "name": "Nuwakot",
+    "cluster": "Cultural Heritage",
+    "alt_name": "Nuwakot Durbar",
+    "region": "Bagmati Province",
+    "altitude_min": 900,
+    "altitude_max": 1000,
+    "terrain": "Hill, historic",
+    "duration_min": 1,
+    "duration_max": 2,
+    "cost_per_day_npr": 2700,
+    "cost_per_day_usd": 20,
+    "difficulty": "Easy",
+    "best_seasons": ["spring", "autumn", "winter"],
+    "activities": ["cultural", "photography", "trekking"],
+    "permits": ["No permits required"],
+    "description": "A historic trading town and the former capital of the Shah kings before the unification of Nepal. The seven-storey Nuwakot Durbar Palace, built in the Malla architectural style, is one of the finest examples of traditional Nepali palace architecture. A peaceful day trip from Kathmandu with stunning valley views.",
+    "highlights": [
+      "Nuwakot Durbar (7-storey palace)",
+      "Bhairav Temple",
+      "Traditional Newari architecture",
+      "Trisuli River views",
+      "Kathmandu Valley panorama"
+    ],
+    "image_url": "/images/nuwakot.jpg",
+    "requires_guide": false,
+    "fitness_level": "moderate",
+    "ams_risk": "Low",
+    "ascent_rate_per_day": 50,
+    "trail_exposure": "hill",
+    "season": "autumn"
+  },
+  {
+    "id": 38,
+    "name": "Syangja",
+    "cluster": "Adventure and Mid-Hill",
+    "alt_name": "Syangja Bazaar",
+    "region": "Gandaki Province",
+    "altitude_min": 500,
+    "altitude_max": 1200,
+    "terrain": "Hill, village",
+    "duration_min": 1,
+    "duration_max": 2,
+    "cost_per_day_npr": 2700,
+    "cost_per_day_usd": 20,
+    "difficulty": "Easy",
+    "best_seasons": ["spring", "autumn", "winter"],
+    "activities": ["photography", "cultural", "trekking"],
+    "permits": ["No permits required"],
+    "description": "A scenic hill town overlooking the Seti River Valley, known for its panoramic Himalayan views and terraced farmlands. Syangja is famous for the Dhapuk Sera viewpoint, the Sidhha Gufa (one of Nepal's largest caves), and its peaceful rural atmosphere away from tourist crowds.",
+    "highlights": [
+      "Dhapuk Sera viewpoint",
+      "Siddha Gufa cave",
+      "Seti River valley views",
+      "Terraced rice fields",
+      "Annapurna & Dhaulagiri panoramas"
+    ],
+    "image_url": "/images/syangja.jpg",
+    "requires_guide": false,
+    "fitness_level": "sedentary",
+    "ams_risk": "Low",
+    "ascent_rate_per_day": 50,
+    "trail_exposure": "hill",
+    "season": "autumn"
+  },
+  {
+    "id": 39,
+    "name": "Butwal",
+    "cluster": "Adventure and Mid-Hill",
+    "alt_name": "Butwal City",
+    "region": "Lumbini Province",
+    "altitude_min": 150,
+    "altitude_max": 300,
+    "terrain": "Valley, urban",
+    "duration_min": 1,
+    "duration_max": 2,
+    "cost_per_day_npr": 2700,
+    "cost_per_day_usd": 20,
+    "difficulty": "Easy",
+    "best_seasons": ["spring", "autumn", "winter"],
+    "activities": ["cultural", "photography", "religious"],
+    "permits": ["No permits required"],
+    "description": "A bustling city at the junction of the hills and the Terai plains, serving as the gateway to Pokhara and Lumbini. Butwal is known for the sacred Siddhababa Temple, the nearby Jitgadi Fort, and its position on the historic Mahendra Highway. A convenient stop with beautiful sunset views over the hills.",
+    "highlights": [
+      "Siddhababa Temple",
+      "Jitgadi Fort",
+      "Tinau River",
+      "Mahendra Highway hub",
+      "Sunset viewpoints"
+    ],
+    "image_url": "/images/butwal.jpg",
+    "requires_guide": false,
+    "fitness_level": "sedentary",
+    "ams_risk": "Low",
+    "ascent_rate_per_day": 20,
+    "trail_exposure": "city",
+    "season": "autumn"
+  },
+  {
+    "id": 40,
+    "name": "Kakani",
+    "cluster": "Adventure and Mid-Hill",
+    "alt_name": "Kakani Viewpoint",
+    "region": "Bagmati Province",
+    "altitude_min": 1900,
+    "altitude_max": 2060,
+    "terrain": "Hill, viewpoint",
+    "duration_min": 1,
+    "duration_max": 2,
+    "cost_per_day_npr": 3375,
+    "cost_per_day_usd": 25,
+    "difficulty": "Easy",
+    "best_seasons": ["spring", "autumn", "winter"],
+    "activities": ["photography", "family", "trekking"],
+    "permits": ["No permits required"],
+    "description": "A serene hill station just 25km northwest of Kathmandu, offering some of the closest Himalayan views from the capital. Kakani's strawberry farms are famous, and the ridge walk provides spectacular panoramas of the Ganesh, Langtang, and Manaslu ranges. A perfect weekend escape from Kathmandu.",
+    "highlights": [
+      "Strawberry picking",
+      "Langtang & Ganesh Himal views",
+      "Short ridge walks",
+      "Picnic spots",
+      "Sunrise & sunset views"
+    ],
+    "image_url": "/images/kakani.jpg",
+    "requires_guide": false,
+    "fitness_level": "sedentary",
+    "ams_risk": "Low",
+    "ascent_rate_per_day": 100,
+    "trail_exposure": "hill",
+    "season": "autumn"
+  }
+]

@@ -2,14 +2,28 @@ import type { Destination, PreferenceInput, ItineraryResult, SafetyReport, Budge
 
 const API_BASE = '/api';
 
+const USER_SCOPED_PREFIXES = ['favorites_', 'preferences_draft_', 'packing_checked_'];
+
 function authHeaders(): Record<string, string> {
-  const token = localStorage.getItem('token');
+  const token = localStorage.getItem('token') || sessionStorage.getItem('token');
   return token ? { Authorization: `Bearer ${token}` } : {};
 }
 
+function clearAllLocalData() {
+  ['token', 'user'].forEach(k => { localStorage.removeItem(k); sessionStorage.removeItem(k) });
+  ['recommendations', 'selectedDestination'].forEach(k => sessionStorage.removeItem(k));
+  const toRemove: string[] = [];
+  for (let i = 0; i < localStorage.length; i++) {
+    const key = localStorage.key(i);
+    if (key && USER_SCOPED_PREFIXES.some(p => key.startsWith(p))) {
+      toRemove.push(key);
+    }
+  }
+  toRemove.forEach(k => localStorage.removeItem(k));
+}
+
 function handleLogout() {
-  localStorage.removeItem('token');
-  localStorage.removeItem('user');
+  clearAllLocalData();
   window.location.href = '/login';
 }
 
@@ -127,4 +141,45 @@ export async function adminCreateDestination(data: Partial<Destination>): Promis
 
 export async function adminDeleteDestination(id: number): Promise<void> {
   await fetchJSON<void>(`/admin/destinations/${id}`, { method: 'DELETE' });
+}
+
+// Trip History API
+export interface TripHistoryItem {
+  id: number
+  user_id: number
+  destination_name: string
+  budget_total: number
+  budget_currency: string
+  duration_days: number | null
+  accommodation: string | null
+  preferences_snapshot: Record<string, unknown> | null
+  breakdown: Array<Record<string, unknown>> | null
+  created_at: string
+}
+
+export async function saveTripHistory(data: {
+  destination_name: string
+  budget_total: number
+  budget_currency?: string
+  duration_days?: number | null
+  accommodation?: string | null
+  preferences_snapshot?: Record<string, unknown> | null
+  breakdown?: Array<Record<string, unknown>> | null
+}): Promise<TripHistoryItem> {
+  return fetchJSON<TripHistoryItem>('/trip-history/save', {
+    method: 'POST',
+    body: JSON.stringify(data),
+  })
+}
+
+export async function getMyTripHistory(): Promise<TripHistoryItem[]> {
+  return fetchJSON<TripHistoryItem[]>('/trip-history/my')
+}
+
+export async function adminGetUserHistory(userId: number): Promise<TripHistoryItem[]> {
+  return fetchJSON<TripHistoryItem[]>(`/admin/users/${userId}/history`)
+}
+
+export async function deleteTripHistory(historyId: number): Promise<void> {
+  return fetchJSON<void>(`/trip-history/${historyId}`, { method: 'DELETE' })
 }

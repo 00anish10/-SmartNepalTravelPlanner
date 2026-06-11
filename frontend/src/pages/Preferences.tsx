@@ -1,9 +1,11 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useNavigate } from 'react-router-dom'
 import toast from 'react-hot-toast'
+import { adToBs } from '@sbmdkl/nepali-date-converter'
 import { getRecommendations } from '../services/api'
 import { usePreferencesStore } from '../hooks/usePreferencesStore'
+import { userStorageKey } from '../hooks/useAuth'
 import type { PreferenceInput } from '../types'
 
 const NPR_RATE = 135
@@ -51,6 +53,7 @@ interface StepProps {
   p: PreferenceInput;
   update: (field: keyof PreferenceInput, value: unknown) => void;
   errors: Record<string, string>;
+  toggle?: (value: string) => void;
 }
 
 export default function Preferences() {
@@ -59,8 +62,10 @@ export default function Preferences() {
   const [step, setStep] = useState(0)
   const [loading, setLoading] = useState(false)
   const [errors, setErrors] = useState<Record<string, string>>({})
+  const prefKey = userStorageKey('preferences_draft')
+
   useEffect(() => {
-    const saved = localStorage.getItem('preferences_draft')
+    const saved = localStorage.getItem(prefKey)
     if (saved) {
       try {
         const parsed = JSON.parse(saved)
@@ -69,18 +74,20 @@ export default function Preferences() {
             setPreference(key, value)
           })
         }
-      } catch {}
+      } catch {
+        localStorage.removeItem(prefKey)
+      }
     }
-  }, [])
+  }, [setPreference, prefKey])
 
   useEffect(() => {
     const timer = setTimeout(() => {
       if (preferences.budget || preferences.nationality) {
-        localStorage.setItem('preferences_draft', JSON.stringify(preferences))
+        localStorage.setItem(prefKey, JSON.stringify(preferences))
       }
     }, 500)
     return () => clearTimeout(timer)
-  }, [preferences])
+  }, [preferences, prefKey])
 
   const update = (field: keyof PreferenceInput, value: unknown) => {
     setPreference(field, value)
@@ -216,12 +223,64 @@ export default function Preferences() {
   )
 }
 
-function Err({ msg }: { msg?: string }) {
-  return msg ? <p className="text-crimson text-xs mt-1">{msg}</p> : null
+const MONTH_NAMES_BS = ['Baisakh', 'Jestha', 'Ashad', 'Shrawan', 'Bhadra', 'Ashwin', 'Kartik', 'Mangsir', 'Poush', 'Magh', 'Falgun', 'Chaitra']
+
+function NepaliDatePicker({ value, onChange }: {
+  value: string
+  onChange: (v: string) => void
+}) {
+  const today = useMemo(() => new Date().toISOString().split('T')[0], [])
+
+  const formatNepali = (ad: string) => {
+    if (!ad) return ''
+    try {
+      const bs = adToBs(ad)
+      const [y, m, d] = bs.split('-')
+      const monthName = MONTH_NAMES_BS[parseInt(m) - 1] || ''
+      return `${monthName} ${parseInt(d)}, ${y} BS`
+    } catch { return '' }
+  }
+
+  return (
+    <div>
+      <label className="block text-sm font-medium mb-2 text-saffron">
+        <span className="flex items-center gap-1.5">
+          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
+          </svg>
+          Travel Date (optional)
+        </span>
+      </label>
+      <div className="relative">
+        <input type="date" min={today} value={value}
+          onChange={(e) => onChange(e.target.value)}
+          className="w-full bg-white border border-stone/20 rounded-xl pl-10 pr-4 py-3 text-sm text-snow focus:border-saffron/50 focus:outline-none focus:ring-2 focus:ring-saffron/10 transition-all [color-scheme:light]" />
+        <div className="absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none text-stone/40">
+          <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+          </svg>
+        </div>
+      </div>
+      {value && (
+        <div className="flex items-center gap-1.5 text-xs text-saffron/80 font-medium mt-1.5">
+          <svg className="w-3.5 h-3.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          <span>{formatNepali(value)}</span>
+        </div>
+      )}
+      <p className="text-xs text-stone/60 mt-2 flex items-center gap-1">
+        <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+          <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z" />
+        </svg>
+        Helps with seasonal permit availability
+      </p>
+    </div>
+  )
 }
 
-function toNPR(usd: number): string {
-  return 'NPR ' + (usd * NPR_RATE).toLocaleString()
+function Err({ msg }: { msg?: string }) {
+  return msg ? <p className="text-crimson text-xs mt-1">{msg}</p> : null
 }
 
 function StepBasics({ p, update, errors }: StepProps) {
@@ -233,7 +292,7 @@ function StepBasics({ p, update, errors }: StepProps) {
       <div className="grid md:grid-cols-2 gap-6">
         <div>
           <label className="block text-sm font-medium mb-2 text-saffron">
-            Budget (Rs)
+            Your Budget (Rs)
           </label>
           <input type="number" min={1000} max={6750000}
             value={p.budget || ''}
@@ -281,7 +340,7 @@ function StepBasics({ p, update, errors }: StepProps) {
 }
 
 function StepInterests({ p, toggle, errors }: StepProps) {
-  const handleToggle = toggle!
+  const handleToggle = toggle ?? (() => {})
   return (
     <div className="card-gradient rounded-2xl p-8 border border-white/10">
       <h2 className="text-2xl font-bold mb-2">Your Interests</h2>
@@ -420,15 +479,10 @@ function StepDetails({ p, update, errors }: StepProps) {
           <span className="text-xs text-stone mt-1">Budget: Rs 1,350-2,025/night | Mid: Rs 3,375-4,725/night | Luxury: Rs 10,800+/night</span>
         </div>
 
-        <div>
-          <label className="block text-sm font-medium mb-2 text-saffron">Travel Dates (optional)</label>
-          <input type="text"
-            value={p.travel_dates || ''}
-            onChange={(e) => update('travel_dates', e.target.value)}
-            placeholder="e.g., Mar-Apr 2026"
-            className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-snow focus:border-saffron/50 focus:outline-none transition-colors" />
-          <span className="text-xs text-stone mt-1">Helps with seasonal permit availability</span>
-        </div>
+        <NepaliDatePicker
+          value={p.travel_dates || ''}
+          onChange={(v) => update('travel_dates', v)}
+        />
       </div>
     </div>
   )

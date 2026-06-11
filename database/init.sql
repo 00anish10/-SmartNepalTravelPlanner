@@ -1,17 +1,9 @@
 -- =====================================================
 -- Nepal Trek AI - Database Schema
--- PostgreSQL Database Setup
+-- Matches backend/app/models/models.py ORM models
 -- =====================================================
 
--- Create database and user
-CREATE DATABASE nepaltrek_db;
-CREATE USER nepaltrek_user WITH PASSWORD 'nepaltrek_pass';
-GRANT ALL PRIVILEGES ON DATABASE nepaltrek_db TO nepaltrek_user;
-
-\c nepaltrek_db;
-
--- Destinations table
--- Users table
+-- Users
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
     username VARCHAR(80) UNIQUE NOT NULL,
@@ -20,11 +12,14 @@ CREATE TABLE users (
     role VARCHAR(20) DEFAULT 'user',
     created_at TIMESTAMP DEFAULT NOW()
 );
+CREATE INDEX idx_users_username ON users(username);
+CREATE INDEX idx_users_email ON users(email);
 
 -- Seed admin user (password: admin123)
 INSERT INTO users (username, email, hashed_password, role)
 VALUES ('admin', 'admin@nepaltrek.ai', '$2b$12$099IwsH6KjG2zcGA3DoJx.d2frVqvCRUMyfBTnl6MGOpEKWdQCc2m', 'admin');
 
+-- Destinations
 CREATE TABLE destinations (
     id SERIAL PRIMARY KEY,
     name VARCHAR(200) NOT NULL,
@@ -48,12 +43,12 @@ CREATE TABLE destinations (
     requires_guide BOOLEAN DEFAULT FALSE,
     ams_risk VARCHAR(50),
     fitness_level VARCHAR(50),
-    match_score FLOAT DEFAULT 0,
-    created_at TIMESTAMP DEFAULT NOW(),
-    updated_at TIMESTAMP DEFAULT NOW()
+    match_score FLOAT DEFAULT 0
 );
+CREATE INDEX idx_destinations_name ON destinations(name);
+CREATE INDEX idx_destinations_cluster ON destinations(cluster);
 
--- User preferences table
+-- User preferences
 CREATE TABLE user_preferences (
     id SERIAL PRIMARY KEY,
     session_id VARCHAR(100) NOT NULL,
@@ -71,36 +66,32 @@ CREATE TABLE user_preferences (
     created_at TIMESTAMP DEFAULT NOW(),
     completed BOOLEAN DEFAULT FALSE
 );
+CREATE INDEX idx_user_preferences_session ON user_preferences(session_id);
 
--- Itineraries table
+-- Itineraries
 CREATE TABLE itineraries (
     id SERIAL PRIMARY KEY,
     session_id VARCHAR(100) NOT NULL,
-    destination_id INTEGER REFERENCES destinations(id),
+    destination_id INTEGER,
     days JSONB,
     total_cost FLOAT,
     total_cost_npr FLOAT,
     emergency_buffer FLOAT,
     created_at TIMESTAMP DEFAULT NOW()
 );
-
--- Safety reports table
-CREATE TABLE safety_reports (
-    id SERIAL PRIMARY KEY,
-    destination_id INTEGER REFERENCES destinations(id),
-    difficulty VARCHAR(50),
-    ams_risk_level VARCHAR(50),
-    acclimatization_days INTEGER,
-    report_data JSONB,
-    created_at TIMESTAMP DEFAULT NOW()
-);
-
--- Indexes
-CREATE INDEX idx_destinations_cluster ON destinations(cluster);
-CREATE INDEX idx_destinations_difficulty ON destinations(difficulty);
-CREATE INDEX idx_user_preferences_session ON user_preferences(session_id);
 CREATE INDEX idx_itineraries_session ON itineraries(session_id);
 
--- Grant permissions
-GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO nepaltrek_user;
-GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public TO nepaltrek_user;
+-- Trip history (saved budget plans per user)
+CREATE TABLE trip_history (
+    id SERIAL PRIMARY KEY,
+    user_id INTEGER NOT NULL,
+    destination_name VARCHAR(200),
+    budget_total FLOAT DEFAULT 0,
+    budget_currency VARCHAR(10) DEFAULT 'NPR',
+    duration_days INTEGER,
+    accommodation VARCHAR(50),
+    preferences_snapshot JSONB,
+    breakdown JSONB,
+    created_at TIMESTAMP DEFAULT NOW()
+);
+CREATE INDEX idx_trip_history_user ON trip_history(user_id);

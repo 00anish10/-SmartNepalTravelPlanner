@@ -28,9 +28,9 @@ export default function Login() {
     setError('')
     if (!validate()) return
     try {
-      await login(username, password)
-    } catch {
-      setError('Invalid username or password')
+      await login(username, password, rememberMe)
+    } catch (e: unknown) {
+      setError(e instanceof Error ? e.message : 'Invalid username or password')
     }
   }
 
@@ -117,14 +117,14 @@ export default function Login() {
 
               <div>
                 <label className="block text-sm font-medium text-snow mb-1.5">
-                  Username
+                  Username or Email
                 </label>
                 <input
                   type="text"
                   value={username}
                   onChange={(e) => { setUsername(e.target.value); setErrors(p => ({ ...p, username: undefined })) }}
                   className={`input ${errors.username ? '!border-red-400 !shadow-red-100' : ''}`}
-                  placeholder="Enter your username"
+                  placeholder="Enter your username or email"
                   autoFocus
                 />
                 {errors.username && (
@@ -148,7 +148,7 @@ export default function Login() {
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}
                     className="absolute right-3 top-1/2 -translate-y-1/2 text-stone hover:text-snow transition-colors"
-                    tabIndex={-1}
+                    aria-label={showPassword ? 'Hide password' : 'Show password'}
                   >
                     {showPassword ? (
                       <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
@@ -210,12 +210,7 @@ export default function Login() {
                   Create one
                 </Link>
               </p>
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-amber-50 border border-amber-200/50 text-xs text-stone">
-                <svg className="w-3.5 h-3.5 text-amber-500" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
-                </svg>
-                Demo: <span className="text-saffron font-medium">admin</span> / <span className="text-saffron font-medium">admin123</span>
-              </div>
+
             </div>
           </div>
 

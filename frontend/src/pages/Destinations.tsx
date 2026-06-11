@@ -1,8 +1,9 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { motion } from 'framer-motion'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { getDestinations } from '../services/api'
 import { CardSkeleton } from '../components/Skeletons'
+import { getFavorites, toggleFavorite } from '../hooks/useAuth'
 import type { Destination } from '../types'
 
 const CLUSTERS = [
@@ -21,16 +22,29 @@ export default function Destinations() {
   const [difficultyFilter, setDifficultyFilter] = useState('All')
   const [sortBy, setSortBy] = useState('name')
   const [imgErrors, setImgErrors] = useState<Record<number, boolean>>({})
+  const [favorites, setFavorites] = useState<number[]>(getFavorites)
+  const [showFavoritesOnly, setShowFavoritesOnly] = useState(false)
+  const [error, setError] = useState<string | null>(null)
 
-  useEffect(() => {
+  const handleToggleFav = (id: number) => {
+    const isFav = toggleFavorite(id)
+    setFavorites(prev => isFav ? [...prev, id] : prev.filter(i => i !== id))
+  }
+
+  const loadDestinations = useCallback(() => {
+    setLoading(true)
+    setError(null)
     getDestinations()
       .then(setDests)
-      .catch(console.error)
+      .catch((err) => setError(err instanceof Error ? err.message : 'Failed to load destinations'))
       .finally(() => setLoading(false))
   }, [])
 
+  useEffect(() => { loadDestinations() }, [loadDestinations])
+
   const filtered = dests
     .filter((d) => {
+      if (showFavoritesOnly && !favorites.includes(d.id)) return false
       if (clusterFilter !== 'All' && d.cluster !== clusterFilter) return false
       if (difficultyFilter !== 'All' && d.difficulty !== difficultyFilter) return false
       if (search) {
@@ -105,7 +119,22 @@ export default function Destinations() {
             </select>
           </div>
           <div className="flex justify-between items-center mt-3">
-            <span className="text-xs text-stone">{filtered.length} of {dests.length} destinations</span>
+            <div className="flex items-center gap-3">
+              <span className="text-xs text-stone">{filtered.length} of {dests.length} destinations</span>
+              <button
+                onClick={() => setShowFavoritesOnly(!showFavoritesOnly)}
+                className={`text-xs flex items-center gap-1 px-2 py-1 rounded-lg transition-colors ${
+                  showFavoritesOnly
+                    ? 'bg-red-50 text-red-500 border border-red-200'
+                    : 'text-stone hover:text-red-400 border border-transparent'
+                }`}
+              >
+                <svg className="w-3.5 h-3.5" fill={showFavoritesOnly ? 'currentColor' : 'none'} viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                </svg>
+                {showFavoritesOnly ? 'Show All' : `Saved (${favorites.length})`}
+              </button>
+            </div>
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value)}
@@ -120,7 +149,18 @@ export default function Destinations() {
         </div>
 
         {/* Grid */}
-        {loading ? (
+        {error ? (
+          <div className="text-center py-16">
+            <div className="text-4xl mb-4 text-stone/40">⚠️</div>
+            <p className="text-stone text-sm mb-4">{error}</p>
+            <button onClick={loadDestinations} className="btn-secondary px-5 py-2.5 rounded-xl text-sm inline-flex items-center gap-2">
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+              </svg>
+              Retry
+            </button>
+          </div>
+        ) : loading ? (
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
             {[1, 2, 3, 4, 5, 6].map((i) => <CardSkeleton key={i} />)}
           </div>
@@ -156,12 +196,27 @@ export default function Destinations() {
                 </div>
                 <div className="flex items-start justify-between mb-2">
                   <h3 className="font-semibold text-snow group-hover:text-saffron transition-colors">{dest.name}</h3>
-                  <span className={`tag-pill text-[10px] ${
-                    dest.difficulty === 'Easy' ? 'bg-tea/20 text-tea border-tea/30' :
-                    dest.difficulty === 'Moderate' ? 'bg-amber/20 text-amber border-amber/30' :
-                    dest.difficulty === 'Difficult' ? 'bg-orange/20 text-orange border-orange/30' :
-                    'bg-crimson/20 text-crimson border-crimson/30'
-                  }`}>{dest.difficulty}</span>
+                  <div className="flex items-center gap-1.5">
+                    <button
+                      onClick={(e) => { e.stopPropagation(); handleToggleFav(dest.id) }}
+                      className={`p-1 rounded-md transition-colors ${
+                        favorites.includes(dest.id)
+                          ? 'text-red-500 hover:text-red-600'
+                          : 'text-stone/40 hover:text-red-400'
+                      }`}
+                      title={favorites.includes(dest.id) ? 'Remove from saved' : 'Save destination'}
+                    >
+                      <svg className="w-4 h-4" fill={favorites.includes(dest.id) ? 'currentColor' : 'none'} viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                      </svg>
+                    </button>
+                    <span className={`tag-pill text-[10px] ${
+                      dest.difficulty === 'Easy' ? 'bg-tea/20 text-tea border-tea/30' :
+                      dest.difficulty === 'Moderate' ? 'bg-amber/20 text-amber border-amber/30' :
+                      dest.difficulty === 'Difficult' ? 'bg-orange/20 text-orange border-orange/30' :
+                      'bg-crimson/20 text-crimson border-crimson/30'
+                    }`}>{dest.difficulty}</span>
+                  </div>
                 </div>
 
                 <div className="flex items-center gap-2 text-xs text-stone mb-2 flex-wrap">

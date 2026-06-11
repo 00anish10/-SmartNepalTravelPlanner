@@ -151,14 +151,6 @@ def budget_estimate(
             "notes": "Rent in Kathmandu/Pokhara. Check quality before renting."
         })
 
-    breakdown.append({
-        "category": "Insurance",
-        "item": "Travel insurance (recommended)",
-        "cost_usd": 80,
-        "cost_npr": 80 * 135,
-        "notes": "Must cover helicopter evacuation (min Rs 6.75Cr). World Nomads / True Traveller."
-    })
-
     subtotal = sum(item["cost_usd"] for item in breakdown)
     subtotal_npr = sum(item["cost_npr"] for item in breakdown)
     emergency_buffer = round(subtotal * 0.15, 2)

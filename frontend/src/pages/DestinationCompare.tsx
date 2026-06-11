@@ -1,10 +1,9 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import type { Destination } from '../types'
 
 export default function DestinationCompare() {
-  const navigate = useNavigate()
   const [destinations, setDestinations] = useState<Destination[]>([])
   const [selectedId, setSelectedId] = useState<number | null>(null)
   const [compareDest, setCompareDest] = useState<Destination | null>(null)

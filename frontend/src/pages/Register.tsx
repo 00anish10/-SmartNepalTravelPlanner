@@ -38,9 +38,10 @@ export default function Register() {
 
   const validate = () => {
     const newErrors: Record<string, string> = {}
-    if (!username.trim()) newErrors.username = 'Username is required'
-    else if (username.trim().length < 3) newErrors.username = 'Username must be at least 3 characters'
-    else if (!/^[a-zA-Z0-9_]+$/.test(username.trim())) newErrors.username = 'Username can only contain letters, numbers, and underscores'
+    const name = username.trim()
+    if (!name) newErrors.username = 'Name is required'
+    else if (name.length < 3) newErrors.username = 'Name must be at least 3 characters'
+    else if (!/^[a-zA-Z][a-zA-Z .'-]{1,48}[a-zA-Z.]$/.test(name)) newErrors.username = 'Name can only contain letters, spaces, dots, and hyphens'
 
     if (!email.trim()) newErrors.email = 'Email is required'
     else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())) newErrors.email = 'Please enter a valid email address'
@@ -59,11 +60,19 @@ export default function Register() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setError('')
+    setErrors({})
     if (!validate()) return
     try {
       await register(username.trim(), email.trim(), password)
     } catch (e: unknown) {
-      setError(e instanceof Error ? e.message : 'Registration failed')
+      const msg = e instanceof Error ? e.message : 'Registration failed'
+      if (msg.toLowerCase().includes('username')) {
+        setErrors(p => ({ ...p, username: msg }))
+      } else if (msg.toLowerCase().includes('email')) {
+        setErrors(p => ({ ...p, email: msg }))
+      } else {
+        setError(msg)
+      }
     }
   }
 
@@ -110,13 +119,13 @@ export default function Register() {
               )}
 
               <div>
-                <label className="block text-sm font-medium text-snow mb-1.5">Username</label>
+                <label className="block text-sm font-medium text-snow mb-1.5">Name</label>
                 <input
                   type="text"
                   value={username}
                   onChange={(e) => { setUsername(e.target.value); clearError('username') }}
                   className={`input ${errors.username ? '!border-red-400 !shadow-red-100' : ''}`}
-                  placeholder="Choose a username"
+                  placeholder="Your full name"
                   autoFocus
                 />
                 {errors.username && <p className="text-red-500 text-xs mt-1">{errors.username}</p>}

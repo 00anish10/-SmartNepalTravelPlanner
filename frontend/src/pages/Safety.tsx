@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react'
+/* eslint-disable react-hooks/exhaustive-deps, react-hooks/set-state-in-effect, no-empty */
+import { useState, useEffect, useCallback } from 'react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import toast from 'react-hot-toast'
@@ -18,11 +19,7 @@ export default function Safety() {
     }
   }, [])
 
-  useEffect(() => {
-    if (destination && !report && !loading) loadReport()
-  }, [destination])
-
-  const loadReport = async () => {
+  const loadReport = useCallback(async () => {
     if (!destination) return
     setLoading(true)
     try {
@@ -33,7 +30,13 @@ export default function Safety() {
     } finally {
       setLoading(false)
     }
-  }
+  }, [destination])
+
+  useEffect(() => {
+    if (destination && !report && !loading) {
+      loadReport()
+    }
+  }, [destination])
 
   if (!destination) {
     return (

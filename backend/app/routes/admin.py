@@ -1,12 +1,24 @@
+from datetime import datetime
 from fastapi import APIRouter, Depends, HTTPException, status
 from pydantic import BaseModel
 from typing import List, Optional
 from sqlalchemy.orm import Session
 
 from app.database import get_db
-from app.models.models import Destination, User
+from app.models.models import Destination, TripHistory, User
 from app.models.schemas import DestinationOut
 from app.routes.auth import require_admin
+
+
+class UserOutAdmin(BaseModel):
+    id: int
+    username: str
+    email: str
+    role: str
+    created_at: datetime
+
+    class Config:
+        from_attributes = True
 
 router = APIRouter(prefix="/api/admin", tags=["Admin"])
 
@@ -33,6 +45,14 @@ class DestinationCreate(BaseModel):
     requires_guide: Optional[bool] = False
     ams_risk: Optional[str] = None
     fitness_level: Optional[str] = None
+
+
+@router.get("/users", response_model=List[UserOutAdmin])
+def list_users(
+    db: Session = Depends(get_db),
+    admin: User = Depends(require_admin),
+):
+    return db.query(User).order_by(User.created_at.desc()).all()
 
 
 @router.get("/destinations", response_model=List[DestinationOut])
@@ -83,4 +103,20 @@ def delete_destination(
     if not dest:
         raise HTTPException(status_code=404, detail="Destination not found")
     db.delete(dest)
+    db.commit()
+
+
+@router.delete("/users/{user_id}", status_code=204)
+def delete_user(
+    user_id: int,
+    db: Session = Depends(get_db),
+    admin: User = Depends(require_admin),
+):
+    if user_id == admin.id:
+        raise HTTPException(status_code=400, detail="Cannot delete your own account")
+    user = db.query(User).filter(User.id == user_id).first()
+    if not user:
+        raise HTTPException(status_code=404, detail="User not found")
+    db.query(TripHistory).filter(TripHistory.user_id == user_id).delete()
+    db.delete(user)
     db.commit()

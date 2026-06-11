@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
+import { userStorageKey } from '../hooks/useAuth'
 
 interface GearItem {
   id: string
@@ -87,8 +88,9 @@ const SEASON_GEAR: Record<string, string[]> = {
 }
 
 export default function PackingChecklist() {
+  const packKey = userStorageKey('packing_checked')
   const [checked, setChecked] = useState<Record<string, boolean>>(() => {
-    const saved = localStorage.getItem('packing_checked')
+    const saved = localStorage.getItem(packKey)
     return saved ? JSON.parse(saved) : {}
   })
   const [showEssentialOnly, setShowEssentialOnly] = useState(false)
@@ -105,8 +107,8 @@ export default function PackingChecklist() {
   })
 
   useEffect(() => {
-    localStorage.setItem('packing_checked', JSON.stringify(checked))
-  }, [checked])
+    localStorage.setItem(packKey, JSON.stringify(checked))
+  }, [checked, packKey])
 
   const toggle = (id: string) => {
     setChecked(prev => ({ ...prev, [id]: !prev[id] }))

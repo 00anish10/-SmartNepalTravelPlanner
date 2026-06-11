@@ -2,8 +2,15 @@
 import { createContext, useContext, useState, useCallback, useEffect, type ReactNode } from 'react'
 import { useNavigate } from 'react-router-dom'
 import toast from 'react-hot-toast'
+import { usePreferencesStore } from './usePreferencesStore'
 
 const API_BASE = '/api'
+
+const APP_STORAGE_KEYS = ['token', 'user']
+
+const SESSION_STORAGE_KEYS = ['recommendations', 'selectedDestination']
+
+const USER_SCOPED_PREFIXES = ['favorites_', 'preferences_draft_', 'packing_checked_']
 
 interface User {
   id: number
@@ -16,7 +23,7 @@ interface User {
 interface AuthContextType {
   user: User | null
   token: string | null
-  login: (username: string, password: string) => Promise<void>
+  login: (username: string, password: string, rememberMe?: boolean) => Promise<void>
   register: (username: string, email: string, password: string) => Promise<void>
   logout: () => void
   loading: boolean
@@ -25,59 +32,128 @@ interface AuthContextType {
 const AuthContext = createContext<AuthContextType | null>(null)
 
 function getStoredAuth(): { user: User | null; token: string | null } {
-  const token = localStorage.getItem('token')
-  const userStr = localStorage.getItem('user')
+  const token = localStorage.getItem('token') || sessionStorage.getItem('token')
+  const userStr = localStorage.getItem('user') || sessionStorage.getItem('user')
   if (token && userStr) {
     try {
-      return { token, user: JSON.parse(userStr) }
+      const parsed = JSON.parse(userStr)
+      if (typeof parsed?.username !== 'string') {
+        clearAllAppData()
+        return { user: null, token: null }
+      }
+      return { token, user: parsed }
     } catch {
-      localStorage.removeItem('token')
-      localStorage.removeItem('user')
+      clearAllAppData()
     }
   }
   return { user: null, token: null }
 }
 
-function clearAuth() {
-  localStorage.removeItem('token')
-  localStorage.removeItem('user')
+function extractErrorDetail(errData: unknown): string {
+  if (errData && typeof errData === 'object' && 'detail' in errData) {
+    const detail = (errData as Record<string, unknown>).detail
+    if (Array.isArray(detail)) {
+      const first = detail[0]
+      if (first && typeof first === 'object' && 'msg' in first) {
+        return String((first as Record<string, unknown>).msg)
+      }
+    }
+    if (typeof detail === 'string') return detail
+  }
+  return 'Request failed'
+}
+
+function clearAllAppData() {
+  APP_STORAGE_KEYS.forEach(k => { localStorage.removeItem(k); sessionStorage.removeItem(k) })
+  SESSION_STORAGE_KEYS.forEach(k => { localStorage.removeItem(k); sessionStorage.removeItem(k) })
+  const toRemove: string[] = []
+  for (let i = 0; i < localStorage.length; i++) {
+    const key = localStorage.key(i)
+    if (key && USER_SCOPED_PREFIXES.some(p => key.startsWith(p))) {
+      toRemove.push(key)
+    }
+  }
+  toRemove.forEach(k => { localStorage.removeItem(k); sessionStorage.removeItem(k) })
+  usePreferencesStore.getState().reset()
 }
 
 function authHeaders(): Record<string, string> {
-  const token = localStorage.getItem('token')
+  const token = localStorage.getItem('token') || sessionStorage.getItem('token')
   return token ? { Authorization: `Bearer ${token}` } : {}
+}
+
+export function getUserId(): number | null {
+  try {
+    const user = JSON.parse(localStorage.getItem('user') || 'null')
+    return user?.id ?? null
+  } catch {
+    return null
+  }
+}
+
+export function userStorageKey(base: string): string {
+  const id = getUserId()
+  return id ? `${base}_${id}` : base
+}
+
+export function getFavorites(): number[] {
+  try {
+    const key = userStorageKey('favorites')
+    return JSON.parse(localStorage.getItem(key) || '[]')
+  } catch { return [] }
+}
+
+export function toggleFavorite(id: number): boolean {
+  try {
+    const key = userStorageKey('favorites')
+    const current: number[] = JSON.parse(localStorage.getItem(key) || '[]')
+    const exists = current.includes(id)
+    const next = exists ? current.filter(i => i !== id) : [...current, id]
+    localStorage.setItem(key, JSON.stringify(next))
+    return !exists
+  } catch {
+    return false
+  }
 }
 
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [{ user, token }, setAuth] = useState(getStoredAuth)
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(!!getStoredAuth().token)
   const navigate = useNavigate()
 
   useEffect(() => {
     const stored = getStoredAuth()
-    if (!stored.token) return
+    if (!stored.token) {
+      setLoading(false)
+      return
+    }
     fetch(`${API_BASE}/auth/me`, {
       headers: { ...authHeaders() },
     })
       .then((res) => {
         if (!res.ok) {
-          clearAuth()
+          clearAllAppData()
           setAuth({ user: null, token: null })
         }
       })
       .catch(() => {
-        clearAuth()
+        clearAllAppData()
         setAuth({ user: null, token: null })
       })
+      .finally(() => setLoading(false))
   }, [])
 
-  const storeAuth = useCallback((token: string, user: User) => {
-    localStorage.setItem('token', token)
-    localStorage.setItem('user', JSON.stringify(user))
-    setAuth({ token, user })
+  const storeAuth = useCallback((token: string, user: User, persist: boolean = true) => {
+    const storage = persist ? localStorage : sessionStorage
+    const other = persist ? sessionStorage : localStorage
+    storage.setItem('token', token)
+    storage.setItem('user', JSON.stringify(user))
+    other.removeItem('token')
+    other.removeItem('user')
+    setAuth({ token, user: { id: user.id, username: String(user.username), email: String(user.email), role: String(user.role), created_at: String(user.created_at) } })
   }, [])
 
-  const login = useCallback(async (username: string, password: string) => {
+  const login = useCallback(async (username: string, password: string, rememberMe: boolean = true) => {
     setLoading(true)
     try {
       const res = await fetch(`${API_BASE}/auth/login`, {
@@ -87,16 +163,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       })
       if (!res.ok) {
         const errData = await res.json().catch(() => null)
-        throw new Error(errData?.detail || 'Invalid username or password')
+        throw new Error(extractErrorDetail(errData) || 'Invalid username or password')
       }
       const data = await res.json()
-      storeAuth(data.access_token, data.user)
+      clearAllAppData()
+      storeAuth(data.access_token, data.user, rememberMe)
       toast.success(`Welcome back, ${data.user.username}!`)
       navigate('/')
-    } catch (e: unknown) {
-      const message = e instanceof Error ? e.message : 'Login failed'
-      toast.error(message)
-      throw e
     } finally {
       setLoading(false)
     }
@@ -112,24 +185,20 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       })
       if (!res.ok) {
         const errData = await res.json().catch(() => null)
-        throw new Error(errData?.detail || 'Registration failed')
+        throw new Error(extractErrorDetail(errData) || 'Registration failed')
       }
       toast.success('Account created successfully! Please login to continue.')
       navigate('/login')
-    } catch (e: unknown) {
-      const message = e instanceof Error ? e.message : 'Registration failed'
-      toast.error(message)
-      throw e
     } finally {
       setLoading(false)
     }
   }, [navigate])
 
   const logout = useCallback(() => {
-    clearAuth()
+    clearAllAppData()
     setAuth({ user: null, token: null })
     toast.success('Logged out successfully')
-    navigate('/')
+    navigate('/login')
   }, [navigate])
 
   return (

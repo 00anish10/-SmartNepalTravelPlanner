@@ -74,3 +74,18 @@ class Itinerary(Base):
     total_cost_npr = Column(Float)
     emergency_buffer = Column(Float)
     created_at = Column(String(50))
+
+
+class TripHistory(Base):
+    __tablename__ = "trip_history"
+
+    id = Column(Integer, primary_key=True, index=True)
+    user_id = Column(Integer, nullable=False, index=True)
+    destination_name = Column(String(200))
+    budget_total = Column(Float, default=0)
+    budget_currency = Column(String(10), default="NPR")
+    duration_days = Column(Integer)
+    accommodation = Column(String(50))
+    preferences_snapshot = Column(JSON)
+    breakdown = Column(JSON)
+    created_at = Column(DateTime, default=datetime.utcnow)

@@ -62,7 +62,7 @@ export default function App() {
 
 function AppContent() {
   const location = useLocation()
-  const { user } = useAuth()
+  const { user, userSessionKey } = useAuth()
   const isHome = location.pathname === '/'
   const isAdmin = user?.role === 'admin'
   const [menuOpen, setMenuOpen] = useState(false)
@@ -74,7 +74,7 @@ function AppContent() {
   return (
     <div className="min-h-screen gradient-bg">
       {!isHome && <Navbar menuOpen={menuOpen} setMenuOpen={setMenuOpen} />}
-      <ErrorBoundary>
+      <ErrorBoundary key={userSessionKey}>
         <AnimatePresence mode="wait">
           <motion.main
             key={location.pathname}

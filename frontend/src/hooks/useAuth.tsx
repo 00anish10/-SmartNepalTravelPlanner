@@ -27,6 +27,7 @@ interface AuthContextType {
   register: (username: string, email: string, password: string) => Promise<void>
   logout: () => void
   loading: boolean
+  userSessionKey: number
 }
 
 const AuthContext = createContext<AuthContextType | null>(null)
@@ -119,6 +120,7 @@ export function toggleFavorite(id: number): boolean {
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [{ user, token }, setAuth] = useState(getStoredAuth)
   const [loading, setLoading] = useState(!!getStoredAuth().token)
+  const [userSessionKey, setUserSessionKey] = useState(0)
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -168,6 +170,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       const data = await res.json()
       clearAllAppData()
       storeAuth(data.access_token, data.user, rememberMe)
+      setUserSessionKey(k => k + 1)
       toast.success(`Welcome back, ${data.user.username}!`)
       navigate('/')
     } finally {
@@ -197,12 +200,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const logout = useCallback(() => {
     clearAllAppData()
     setAuth({ user: null, token: null })
+    setUserSessionKey(k => k + 1)
     toast.success('Logged out successfully')
     navigate('/login')
   }, [navigate])
 
   return (
-    <AuthContext.Provider value={{ user, token, login, register, logout, loading }}>
+    <AuthContext.Provider value={{ user, token, login, register, logout, loading, userSessionKey }}>
       {children}
     </AuthContext.Provider>
   )
